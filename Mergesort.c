@@ -32,20 +32,19 @@ int removeNode(LinkedList *ll, int index);
 int main()
 {
 	LinkedList ll;
-
 	//Initialize the linked list 1 as an empty linked list
 	ll.head = NULL;
 	ll.size = 0;
 	//initiation of jumbled list
-	insertNode(&ll,0,5);
-	insertNode(&ll,0,3);
-	insertNode(&ll,0,4);
-	insertNode(&ll,0,2);
-	insertNode(&ll,0,6);
+// 	insertNode(&ll,0,5);
+// 	insertNode(&ll,0,3);
+// 	insertNode(&ll,0,4);
+// 	insertNode(&ll,0,2);
+// 	insertNode(&ll,0,6);
 	insertNode(&ll,0,1);
 	printList(&ll);
 	
-	mergesort(ll);
+	printList(mergesort(&ll));
 
 	
 	return 0;
@@ -56,7 +55,17 @@ int main()
 int mergesort(LinkedList *ll)
 {
 	ListNode *cur, *pre;
-	printf("size: %d\n", ll.size);
+	printf("size: %d\n", ll->size);
+	LinkedList ll1;
+	//Initialize the linked list 1 as an empty linked list
+	ll1.head = NULL;
+	ll1.size = 0;
+	LinkedList ll2;
+	//Initialize the linked list 1 as an empty linked list
+	ll2.head = NULL;
+	ll2.size = 0;
+	
+	if(ll->size == 1) return ll->head;
 	
 }
 
