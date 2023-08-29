@@ -17,10 +17,10 @@ int main() {
     return 0;
 }
 
-int mergesort(int array[]){
-    int size = sizeof(array);
+int mergesort(int arr[]){
+    int size = sizeof(arr);
     printf("\nsize: %d\n", size);
-    if(size==1) return array;
+    if(size==1) return 0;
     int* arr1;
     int* arr2;
     int i=0;
@@ -31,26 +31,26 @@ int mergesort(int array[]){
     
 
     for(i=0; i<size/2; i++){
-        arr1[i] = array[i];
+        arr1[i] = arr[i];
     }
-    
-    printf("i: %d\n", i);
-    
     int j=0;
     for(; i<size; i++){
-        arr2[j] = array[i];
+        arr2[j] = arr[i];
         j++;
     }
     
     for(int i=0;i<size/2;i++){
         printf("%d ", arr1[i]);
     }
+    printf("\n");
     for(int i=0;i<size/2;i++){
         printf("%d ", arr2[i]);
     }
-
-    
-
+    printf("\n");
+    // mergesort(arr1);
+    // mergesort(arr2);
+    merge(arr1,arr2);
+    return 0;
 }
 
 int merge(int array1[] , int array2[]){
