@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int mergesort(int array[], int size);
-int merge(int array1[] , int array2[]);
+int* mergesort(int array[], int size);
+int* merge(int array1[] , int array2[]);
+void print(int array[], int size);
 
 int main() {
     // Write C code here
-    int array[8] = {1,4,3,6,2,8,5,7};
+    int array[4] = {4,3,2,1};
     int arraysize = sizeof(array)/sizeof(int);
 
     print(array, arraysize);
@@ -14,7 +15,7 @@ int main() {
     return 0;
 }
 
-int mergesort(int arr[], int size){
+int* mergesort(int arr[], int size){
     if(size==1) return 0;
     int* arr1;
     int* arr2;
@@ -36,21 +37,36 @@ int mergesort(int arr[], int size){
     
     print(arr1,size/2);
     print(arr2,size/2);
-    mergesort(arr1,size/2);
-    mergesort(arr2,size/2);
-    merge(arr1,arr2);
-    return 0;
+    // mergesort(arr1,size/2);
+    // mergesort(arr2,size/2);
+    // return merge(arr1,arr2);
+    return merge(mergesort(arr1,size/2), mergesort(arr2,size/2));
 }
 
-int merge(int array1[], int array2[]){
+int* merge(int array1[], int array2[]){
     int i=0,j=0;
-    while()
+    int end=0;
+    int min, max;
+    if(array1[0]<array2[0]) min = array1[0];
+    else min = array2[0];
     
-
+    while(array1[end] != NULL) end++;
+    end--;
+    // printf("comparing %d and %d\n", array1[end], array2[end]);
+    if(array1[end]>array2[end]) max = array1[end];
+    else max = array2[end];
+    
+    int sortedarray[2] = {min,max};
+    printf("merging\n");
+    print(array1,2);
+    print(array2,2);
+    // printf("min: %d, max: %d\n", min,max);
+    print(sortedarray,2);
+    return sortedarray;
 }
 
 void print(int array[], int size){
-    printf("size: %d\n", size);
+    printf("size:%d , ", size);
     for(int i=0;i<size;i++){
         printf("%d ", array[i]);
     }
