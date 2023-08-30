@@ -6,11 +6,11 @@ int merge(int array1[] , int array2[]);
 
 int main() {
     // Write C code here
-    int array[8] = {1,4,3,6,2,8,5,7};
-    // printf("size: %d\n", sizeof(array));
+    int array[6] = {1,4,3,6,2,8};
+    int arraysize = sizeof(array)/sizeof(int);
 
 
-    print(array);
+    print(array,arraysize);
     mergesort(array);
     return 0;
 }
@@ -27,9 +27,8 @@ int mergesort(int arr[]){
     arr1 = (int*)malloc(newsize * sizeof(int));
     arr2 = (int*)malloc(newsize * sizeof(int));
     
-    
-
     for(i=0; i<size/2; i++){
+        printf("%d\n",arr[i]);
         arr1[i] = arr[i];
     }
     
@@ -39,8 +38,8 @@ int mergesort(int arr[]){
         j++;
     }
     
-    print(arr1);
-    print(arr2);
+    // print(arr1);
+    // print(arr2);
     // mergesort(arr1);
     // mergesort(arr2);
     merge(arr1,arr2);
@@ -51,8 +50,7 @@ int merge(int array1[] , int array2[]){
 
 }
 
-void print(int array[]){
-    int size = sizeof(array);
+void print(int array[], int size){
     printf("size: %d\n", size);
     for(int i=0;i<size;i++){
         printf("%d ", array[i]);
