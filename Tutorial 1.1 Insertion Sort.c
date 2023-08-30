@@ -10,12 +10,12 @@ void insertionSort(int arr[], int n){
     for (i = 1; i < n; i++){
         key = arr[i];
         j = i - 1;
-        while (j >= 0 && arr[j] > key){
+        
+        for(j=i-1; j>=0 ; j--){
             counter++;
-            arr[j + 1] = arr[j];
-            j = j - 1;
+            if(arr[j]<=key) break;
+            arr[j+1]=arr[j];
         }
-        counter++;
         arr[j + 1] = key;
     }
     printf("Comparisons: %d\n", counter);
@@ -34,7 +34,7 @@ void printArray(int arr[], int n)
 // Driver code
 int main()
 {
-    int arr[] = {6,5,4,3,1,2};
+    int arr[] = {6,5,4,3,2,1};
     int n = sizeof(arr) / sizeof(arr[0]);
     insertionSort(arr, n);
     printArray(arr, n);
