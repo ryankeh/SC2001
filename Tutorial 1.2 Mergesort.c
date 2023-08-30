@@ -1,23 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int mergesort(int array[]);
+int mergesort(int array[], int size);
 int merge(int array1[] , int array2[]);
 
 int main() {
     // Write C code here
-    int array[6] = {1,4,3,6,2,8};
+    int array[8] = {1,4,3,6,2,8,5,7};
     int arraysize = sizeof(array)/sizeof(int);
 
-
-    print(array,arraysize);
-    mergesort(array);
+    print(array, arraysize);
+    mergesort(array, arraysize);
     return 0;
 }
 
-int mergesort(int arr[]){
-    int size = sizeof(arr);
-    printf("size: %d\n", size);
+int mergesort(int arr[], int size){
     if(size==1) return 0;
     int* arr1;
     int* arr2;
@@ -28,7 +25,6 @@ int mergesort(int arr[]){
     arr2 = (int*)malloc(newsize * sizeof(int));
     
     for(i=0; i<size/2; i++){
-        printf("%d\n",arr[i]);
         arr1[i] = arr[i];
     }
     
@@ -38,15 +34,18 @@ int mergesort(int arr[]){
         j++;
     }
     
-    // print(arr1);
-    // print(arr2);
-    // mergesort(arr1);
-    // mergesort(arr2);
+    print(arr1,size/2);
+    print(arr2,size/2);
+    mergesort(arr1,size/2);
+    mergesort(arr2,size/2);
     merge(arr1,arr2);
     return 0;
 }
 
-int merge(int array1[] , int array2[]){
+int merge(int array1[], int array2[]){
+    int i=0,j=0;
+    while()
+    
 
 }
 
