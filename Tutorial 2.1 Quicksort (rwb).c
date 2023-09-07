@@ -16,8 +16,8 @@ int main() {
     while(arr[n]!=NULL){ n++;}
     printf("n: %d\n", n);
     
-    r=0;
-    u=1;
+    r=-1;
+    u=0;
     b=n-1;
     
     while(u<b){
