@@ -12,7 +12,6 @@ int main() {
     char arr[80];
     printf("Enter a string: \n");
     fgets(arr, 80, stdin);
-    printf("%c\n", arr[0]);
     
     while(arr[n]!=NULL){ n++;}
     printf("n: %d\n", n);
