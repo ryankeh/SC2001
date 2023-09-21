@@ -15,7 +15,7 @@ int main() {
     }
     
     int pivot = selectPivot(arr,n);
-    printf("pivot: %d\n", pivot);
+    printf("pivot index: %d\n", pivot);
     
     
     int i=0;
@@ -37,10 +37,10 @@ int selectPivot(int arr[], int length){
     int last = arr[length - 1];
 
     if ((first >= middle && first <= last) || (first <= middle && first >= last)) {
-        return first;
+        return 0;
     } else if ((middle >= first && middle <= last) || (middle <= first && middle >= last)) {
-        return middle;
+        return length/2;
     } else {
-        return last;
+        return length-1;
     }
 }
