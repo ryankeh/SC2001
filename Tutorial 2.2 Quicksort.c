@@ -3,20 +3,24 @@
 
 int pivotIndex;
 int arr[80];
+
+void quicksort(int n, int m);
+int partition( int low, int high);
+void swap(int a, int b);
+
 int main() {
     // Write C code here
     int n=0;
     printf("Enter a string: \n");
     while (1) {
-        if (scanf("%d", &arr[n]) != 1) {
-            // If the input is not an integer, stop reading
-            break;
-        }
-        n++; // Increment the count of elements
+        if (scanf("%d", &arr[n]) != 1) break;
+        n++;
     }
     
-    pivotIndex = selectPivot(arr,n);
-    printf("pivot index: %d\n", pivotIndex);
+    // pivotIndex = selectPivot(arr,n);
+    // printf("pivot index: %d\n", pivotIndex);
+    
+    quicksort(0,n-1);
     
     int i=0;
     while(arr[i]!=NULL){
@@ -42,7 +46,7 @@ int partition( int low, int high){
     pivot = arr[low];
     last_small = low;
     for(i=low+1;i<=high;i++){
-        if(slot[i]<pivot) swap(++last_small,i);
+        if(arr[i]<pivot) swap(++last_small,i);
     }
     swap(low,last_small);
     return last_small;
