@@ -29,28 +29,19 @@ int main() {
 }
 
 int selectPivot(int arr[], int length){
-    if (length < 3) {
-        return -1;
-    }
+    if (length < 3) return -1;
 
     int first = arr[0];
     int middle = arr[length / 2];
     int last = arr[length - 1];
 
-    if ((first >= middle && first <= last) || (first <= middle && first >= last)) {
-        return 0;
-    } else if ((middle >= first && middle <= last) || (middle <= first && middle >= last)) {
-        return length/2;
-    } else {
-        return length-1;
-    }
+    if ((first >= middle && first <= last) || (first <= middle && first >= last)) return 0;
+    else if ((middle >= first && middle <= last) || (middle <= first && middle >= last)) return length/2;
+    else return length-1;
 }
 
-void quicksort(int n, int m){
-    int pivot_pos;
-    if( n>=m ) return;
-    pivot_pos = partition(n,m);
-    quicksort(n, pivot_pos - 1);
-    quicksort(pivot_pos + 1, m);
-
-}
+// void quicksort(int n, int m){
+//     int pivot_pos;
+//     if( n>=m) return;
+//     pivot_pos = partition(n,m);
+// }
