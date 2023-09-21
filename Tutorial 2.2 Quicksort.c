@@ -1,9 +1,10 @@
 // Online C compiler to run C program online
 #include <stdio.h>
 
+int pivotIndex;
+int arr[80];
 int main() {
     // Write C code here
-    int arr[80];
     int n=0;
     printf("Enter a string: \n");
     while (1) {
@@ -14,8 +15,8 @@ int main() {
         n++; // Increment the count of elements
     }
     
-    int pivot = selectPivot(arr,n);
-    printf("pivot index: %d\n", pivot);
+    pivotIndex = selectPivot(arr,n);
+    printf("pivot index: %d\n", pivotIndex);
     
     
     int i=0;
@@ -43,4 +44,13 @@ int selectPivot(int arr[], int length){
     } else {
         return length-1;
     }
+}
+
+void quicksort(int n, int m){
+    int pivot_pos;
+    if( n>=m ) return;
+    pivot_pos = partition(n,m);
+    quicksort(n, pivot_pos - 1);
+    quicksort(pivot_pos + 1, m);
+
 }
