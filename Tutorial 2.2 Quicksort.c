@@ -18,7 +18,6 @@ int main() {
     pivotIndex = selectPivot(arr,n);
     printf("pivot index: %d\n", pivotIndex);
     
-    
     int i=0;
     while(arr[i]!=NULL){
         printf("%d ", arr[i]);
@@ -40,8 +39,22 @@ int selectPivot(int arr[], int length){
     else return length-1;
 }
 
-// void quicksort(int n, int m){
-//     int pivot_pos;
-//     if( n>=m) return;
-//     pivot_pos = partition(n,m);
-// }
+void quicksort(int n, int m){
+    int pivot_pos;
+    if( n>=m) return;
+    pivot_pos = partition(n,m);
+    quicksort(n, pivot_pos - 1);
+    quicksort(pivot_pos + 1, m);
+}
+
+int partition( int low, int high){
+    int i, last_small, pivot;
+    int mid = (low+high)/2;
+    swap(low, mid);
+}
+
+void swap(int a, int b){
+    int temp = arr[a];
+    arr[a] = arr[b];
+    arr[b] = temp;
+}
