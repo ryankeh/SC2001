@@ -27,18 +27,6 @@ int main() {
     return 0;
 }
 
-int selectPivot(int arr[], int length){
-    if (length < 3) return -1;
-
-    int first = arr[0];
-    int middle = arr[length / 2];
-    int last = arr[length - 1];
-
-    if ((first >= middle && first <= last) || (first <= middle && first >= last)) return 0;
-    else if ((middle >= first && middle <= last) || (middle <= first && middle >= last)) return length/2;
-    else return length-1;
-}
-
 void quicksort(int n, int m){
     int pivot_pos;
     if( n>=m) return;
@@ -51,10 +39,29 @@ int partition( int low, int high){
     int i, last_small, pivot;
     int mid = (low+high)/2;
     swap(low, mid);
+    pivot = arr[low];
+    last_small = low;
+    for(i=low+1;i<=high;i++){
+        if(slot[i]<pivot) swap(++last_small,i);
+    }
+    swap(low,last_small);
+    return last_small;
 }
 
 void swap(int a, int b){
     int temp = arr[a];
     arr[a] = arr[b];
     arr[b] = temp;
+}
+
+int selectPivot(int arr[], int length){
+    if (length < 3) return -1;
+
+    int first = arr[0];
+    int middle = arr[length / 2];
+    int last = arr[length - 1];
+
+    if ((first >= middle && first <= last) || (first <= middle && first >= last)) return 0;
+    else if ((middle >= first && middle <= last) || (middle <= first && middle >= last)) return length/2;
+    else return length-1;
 }
