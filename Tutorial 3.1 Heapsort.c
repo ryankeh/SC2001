@@ -50,15 +50,37 @@ void heapify(int n, int i){
     return;
 }
 
-// void heapSort(int n){
-    
-    
-//     for(i=n;i>0;i--){
-//         //goes from last index to second one
-//         //first index will be the lowest at the end
-        
-//     }
-// }
+void heapSort(int n){
+    for(i=n;i>0;i--){
+        //goes from last index to second one
+        //first index will be the lowest at the end
+        swap(0,i-1);
+        fixheap(0,i);
+    }
+}
+
+void fixheap(int index, int i){
+    int left = 2*index+1;
+    int right = 2*index+2;
+    int largerChild;
+    if(arr[left]>arr[right]){
+        largerChild=left;
+    }else largerChild=right;
+
+    if(2*index+1>=i){
+        //leaf node
+        return;
+    }
+    else{
+        if(arr[index]>arr[largerChild]){
+            return;
+        }
+        else{
+            swap(index,largerChild);
+            fixheap(largerChild,i);
+        }
+    }
+}
 
 void swap(int a, int b){
     int temp = arr[a];
