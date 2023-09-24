@@ -5,6 +5,9 @@ int arr[80];
 
 void buildHeap(int n);
 void heapify(int n, int i);
+void heapSort(int n);
+void fixheap(int index, int i);
+
 void swap(int a, int b);
 void printarray();
 
@@ -19,6 +22,8 @@ int main() {
     }
     
     buildHeap(n);
+    
+    heapSort(n);
 
     printarray();
 
@@ -51,11 +56,11 @@ void heapify(int n, int i){
 }
 
 void heapSort(int n){
-    for(i=n;i>0;i--){
+    for(int i=n;i>0;i--){
         //goes from last index to second one
         //first index will be the lowest at the end
         swap(0,i-1);
-        fixheap(0,i);
+        fixheap(0,i-1);
     }
 }
 
