@@ -23,6 +23,9 @@ int main() {
     
     buildHeap(n);
     
+    printf("starting heap: ");
+    printarray();
+    
     heapSort(n);
 
     printarray();
@@ -56,11 +59,12 @@ void heapify(int n, int i){
 }
 
 void heapSort(int n){
-    for(int i=n;i>0;i--){
+    for(int i=n;i>2;i--){
         //goes from last index to second one
         //first index will be the lowest at the end
+        // i>2 cos otherwise will swap the already nicely slotted 2nd value in the array
         swap(0,i-1);
-        fixheap(0,i-1);
+        fixheap(0,i-2);
     }
 }
 
@@ -99,5 +103,6 @@ void printarray(){
         printf("%d ", arr[i]);
         i++;
     }
+    printf("\n");
 }
 
