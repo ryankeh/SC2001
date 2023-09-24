@@ -26,7 +26,8 @@ int main() {
 }
 
 void buildHeap(int n){
-    for(int i=0;i<n;i++){
+    //build from bottom up, last parent node
+    for(int i=n/2 -1;i>=0;i--){
         heapify(n,i);
     }
     return;
