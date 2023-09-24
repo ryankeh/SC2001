@@ -34,7 +34,6 @@ void buildHeap(int n){
 }
 
 void heapify(int n, int i){
-    printf("heapifying %d\n", i);
     int max = i;
     int left = 2*i+1;
     int right = 2*i+2;
@@ -44,7 +43,6 @@ void heapify(int n, int i){
     //check if right child is greater than current largest
     if(right<n && arr[right]>arr[max]) max = right;
     //check if largest element is the root
-    printf("max: %d\n", arr[max]);
     if(max!=i){
         swap(i,max);
         heapify(n,max);
