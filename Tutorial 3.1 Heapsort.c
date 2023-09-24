@@ -6,6 +6,7 @@ int arr[80];
 void buildHeap(int n);
 void heapify(int n, int i);
 void swap(int a, int b);
+void printarray();
 
 
 int main() {
@@ -19,11 +20,7 @@ int main() {
     
     buildHeap(n);
 
-    int i=0;
-    while(arr[i]!=NULL){
-        printf("%d ", arr[i]);
-        i++;
-    }
+    printarray();
 
     return 0;
 }
@@ -36,14 +33,17 @@ void buildHeap(int n){
 }
 
 void heapify(int n, int i){
+    printf("heapifying %d\n", i);
     int max = i;
-    int left = 2*i;
-    int right = 2*i+1;
+    int left = 2*i+1;
+    int right = 2*i+2;
+    
     //check if left child greater than current largest
     if(left<n && arr[left]>arr[max]) max = left;
     //check if right child is greater than current largest
     if(right<n && arr[right]>arr[max]) max = right;
     //check if largest element is the root
+    printf("max: %d\n", arr[max]);
     if(max!=i){
         swap(i,max);
         heapify(n,max);
@@ -65,5 +65,13 @@ void swap(int a, int b){
     int temp = arr[a];
     arr[a] = arr[b];
     arr[b] = temp;
+}
+
+void printarray(){
+    int i=0;
+    while(arr[i]!=NULL){
+        printf("%d ", arr[i]);
+        i++;
+    }
 }
 
